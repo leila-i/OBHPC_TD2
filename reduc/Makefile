@@ -3,7 +3,7 @@ CFLAGS=-g -Wall
 OFLAGS=-O3
 
 INTEL_LFLAGS=-qmkl
-GNU_LFLAGS=-lm -lcblas
+GNU_LFLAGS=-lm -lblas
 
 FILES=main.c tools.c kernels.c
 
