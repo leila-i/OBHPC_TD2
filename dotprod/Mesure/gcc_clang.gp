@@ -11,8 +11,8 @@ set xrange [ * : * ]
 set yrange [ * : * ]
 
 set ylabel 'bandwidth in MiB/s'
-set xlabel 'different types de multiplication de matrice 104x112'
+set xlabel 'Dotprod de matrice 104x112'
 
 set title "Compareson de gcc et clang"
-plot '104-x-112-gcc-O3.dat' using 14:xtic(1) ti 'gcc' lc rgb '#3399FF', \
-     '104-x-112-clang-O3.dat' using 14:xtic(1) ti 'clang' lc rgb '#9933FF'
+plot '104-x-112-gcc-O3.dat' using 15:xtic(1) ti 'gcc' lc rgb '#3399FF', \
+     '104-x-112-clang-O3.dat' using 15:xtic(1) ti 'clang' lc rgb '#9933FF'
