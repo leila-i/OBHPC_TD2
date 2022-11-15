@@ -30,14 +30,14 @@ f64 reduc_unrollx8(f64 *restrict a, u64 n)
 	  //Unroll 8 times
 	  for (u64 i = 0; i < (n - (n & (UNROLL8 - 1))); i += UNROLL8)
 	    {
-          d += a[i * n];
-          d += a[i * n + 1];
-          d += a[i * n + 2];
-          d += a[i * n + 3];
-          d += a[i * n + 4];
-          d += a[i * n + 5];
-          d += a[i * n + 6];
-          d += a[i * n + 7];
+          d += a[i];
+          d += a[i + 1];
+          d += a[i + 2];
+          d += a[i + 3];
+          d += a[i + 4];
+          d += a[i + 5];
+          d += a[i + 6];
+          d += a[i + 7];
 	    }
 
 	  //Manage the leftovers
