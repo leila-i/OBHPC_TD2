@@ -2,8 +2,6 @@
 
 #
 make clean
-mkdir "Mesure"
-echo "# Création de répertoires: Mesure"
 
 #
 echo "Entrer le compilateur :"
@@ -17,20 +15,10 @@ echo "Entrer n :"
 read n
 echo "Entrer r :"
 read r
-./dgemm $n $r > "Mesure/$n-x-$r-$cc$Oflags.dat"
-cd "Mesure"
+
+sudo cpupower -c 0 frequency-set -g performance
+taskset -c 0 ./dgemm $n $r > "Mesure/$n-x-$r-$cc$Oflags.dat"
 
 #
-#mkdir -p "$n-x-$r-$cc$Oflags"
-#echo "# Création de répertoires: Mesure/$n-x-$r-$cc$Oflags"
+make clean
 
-#
-#nb=$( wc -l "$n-x-$r-$cc$Oflags.dat"  | cut -d' ' -f1 )
-
-#
-#for (( i=1; i < $nb; i++ ));
-#do
-#    head -n 1 "$n-x-$r-$cc$Oflags.dat" > "$n-x-$r-$cc$Oflags/$i-$cc$Oflags.dat"
-#    echo "$(tail -n "$i" "$n-x-$r-$cc$Oflags.dat" | head -n 1)" | awk '{gsub(/;/,"")}1'  >> "$n-x-$r-$cc$Oflags/$i-$cc$Oflags.dat"
-#    echo "# Création du fichier: Mesure/$n-x-$r-$cc$Oflags/$i-$cc$Oflags.dat"
-#done

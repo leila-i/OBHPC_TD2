@@ -2,8 +2,6 @@
 
 #
 make clean
-mkdir "Mesure"
-echo "# Création de répertoires: Mesure"
 
 #
 echo "Entrer le compilateur :"
@@ -17,4 +15,10 @@ echo "Entrer n :"
 read n
 echo "Entrer r :"
 read r
-./dotprod $n $r > "Mesure/$n-x-$r-$cc$Oflags.dat"
+
+sudo cpupower -c 0 frequency-set -g performance
+taskset -c 0 ./dotprod $n $r > "Mesure/$n-x-$r-$cc$Oflags.dat"
+
+#
+make clean
+
